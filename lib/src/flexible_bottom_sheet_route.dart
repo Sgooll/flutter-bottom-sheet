@@ -45,6 +45,7 @@ const Duration _bottomSheetExitDuration = Duration(milliseconds: 200);
 /// [isSafeArea] - should the bottom sheet provide a SafeArea, false by default.
 /// [decoration] - content decoration bottom sheet.
 /// [useRootScaffold] - if true, add Scaffold widget on widget tree. Default true.
+/// [routeSettings] - pass route name and arguments during navigation between screens
 Future<T?> showFlexibleBottomSheet<T>({
   required BuildContext context,
   required FlexibleDraggableScrollableWidgetBuilder builder,
@@ -66,6 +67,7 @@ Future<T?> showFlexibleBottomSheet<T>({
   bool isSafeArea = false,
   BoxDecoration? decoration,
   bool useRootScaffold = true,
+  RouteSettings? routeSettings,
 }) {
   assert(debugCheckHasMediaQuery(context));
   assert(debugCheckHasMaterialLocalizations(context));
@@ -93,6 +95,7 @@ Future<T?> showFlexibleBottomSheet<T>({
       isSafeArea: isSafeArea,
       decoration: decoration,
       useRootScaffold: useRootScaffold,
+      settings: routeSettings,
     ),
   );
 }
@@ -128,6 +131,7 @@ Future<T?> showFlexibleBottomSheet<T>({
 /// [duration] - animation speed when opening bottom sheet.
 /// [isSafeArea] - should the bottom sheet provide a SafeArea, false by default.
 /// [useRootScaffold] - if true, add Scaffold widget on widget tree. Default true.
+/// [routeSettings] - pass route name and arguments during navigation between screens
 Future<T?> showStickyFlexibleBottomSheet<T>({
   required BuildContext context,
   required FlexibleDraggableScrollableHeaderWidgetBuilder headerBuilder,
@@ -153,6 +157,7 @@ Future<T?> showStickyFlexibleBottomSheet<T>({
   Duration? duration,
   bool isSafeArea = false,
   bool useRootScaffold = true,
+  RouteSettings? routeSettings,
 }) {
   assert(maxHeaderHeight != null || headerHeight != null);
   assert(debugCheckHasMediaQuery(context));
@@ -184,6 +189,7 @@ Future<T?> showStickyFlexibleBottomSheet<T>({
       duration: duration,
       isSafeArea: isSafeArea,
       useRootScaffold: useRootScaffold,
+      settings: routeSettings,
     ),
   );
 }
