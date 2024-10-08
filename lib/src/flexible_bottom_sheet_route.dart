@@ -132,6 +132,8 @@ Future<T?> showStickyFlexibleBottomSheet<T>({
   required BuildContext context,
   required FlexibleDraggableScrollableHeaderWidgetBuilder headerBuilder,
   required FlexibleDraggableScrollableWidgetBodyBuilder bodyBuilder,
+  FlexibleDraggableScrollableWidgetBuilder? builder,
+  EdgeInsets? bodyPadding,
   DraggableScrollableController? draggableScrollableController,
   double? minHeight,
   double? initHeight,
@@ -153,6 +155,7 @@ Future<T?> showStickyFlexibleBottomSheet<T>({
   Duration? duration,
   bool isSafeArea = false,
   bool useRootScaffold = true,
+  RouteSettings? routeSettings,
 }) {
   assert(maxHeaderHeight != null || headerHeight != null);
   assert(debugCheckHasMediaQuery(context));
@@ -171,6 +174,8 @@ Future<T?> showStickyFlexibleBottomSheet<T>({
       draggableScrollableController: draggableScrollableController,
       isExpand: isExpand,
       bodyBuilder: bodyBuilder,
+      bodyPadding: bodyPadding,
+      builder: builder,
       headerBuilder: headerBuilder,
       isModal: isModal,
       anchors: anchors,
@@ -184,10 +189,10 @@ Future<T?> showStickyFlexibleBottomSheet<T>({
       duration: duration,
       isSafeArea: isSafeArea,
       useRootScaffold: useRootScaffold,
+      settings: routeSettings,
     ),
   );
 }
-
 /// A modal route with flexible bottom sheet.
 class FlexibleBottomSheetRoute<T> extends PopupRoute<T> {
   final FlexibleDraggableScrollableWidgetBuilder? builder;
